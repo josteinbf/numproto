@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message NdArray {
+    bytes ndarray = 1;
+}
