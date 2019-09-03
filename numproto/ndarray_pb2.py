@@ -20,21 +20,21 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\rndarray.proto\"\x1a\n\x07NdArray\x12\x0f\n\x07ndarray\x18\x01 \x01(\x0c\x62\x06proto3')
+  serialized_pb=_b('\n\rndarray.proto\"\x1a\n\x07NDArray\x12\x0f\n\x07ndarray\x18\x01 \x01(\x0c\x62\x06proto3')
 )
 
 
 
 
 _NDARRAY = _descriptor.Descriptor(
-  name='NdArray',
-  full_name='NdArray',
+  name='NDArray',
+  full_name='NDArray',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ndarray', full_name='NdArray.ndarray', index=0,
+      name='ndarray', full_name='NDArray.ndarray', index=0,
       number=1, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -56,15 +56,15 @@ _NDARRAY = _descriptor.Descriptor(
   serialized_end=43,
 )
 
-DESCRIPTOR.message_types_by_name['NdArray'] = _NDARRAY
+DESCRIPTOR.message_types_by_name['NDArray'] = _NDARRAY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-NdArray = _reflection.GeneratedProtocolMessageType('NdArray', (_message.Message,), {
+NDArray = _reflection.GeneratedProtocolMessageType('NDArray', (_message.Message,), {
   'DESCRIPTOR' : _NDARRAY,
   '__module__' : 'ndarray_pb2'
-  # @@protoc_insertion_point(class_scope:NdArray)
+  # @@protoc_insertion_point(class_scope:NDArray)
   })
-_sym_db.RegisterMessage(NdArray)
+_sym_db.RegisterMessage(NDArray)
 
 
 # @@protoc_insertion_point(module_scope)

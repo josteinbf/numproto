@@ -1,4 +1,4 @@
-# Numproto
+# NumProto
 
 **Numproto** is a simple python3.6+ library to serialize and deserialize numpy
 arrays into and from protobuf messages.
@@ -15,13 +15,13 @@ $ pip install .
 
 ## Usage
 
-Numproto serializes a numpy array into an `NdArray` message as specified in
+Numproto serializes a numpy array into an `NDArray` message as specified in
 [ndarray.proto](https://github.com/xainag/numproto/blob/master/xain/protobuf/ndarray.proto):
 
 ```proto
 syntax = "proto3";
 
-message NdArray {
+message NDArray {
     bytes ndarray = 1;
 }
 ```
