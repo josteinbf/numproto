@@ -7,6 +7,11 @@ if sys.version_info < (3, 6):
     sys.exit("Please use Python version 3.6 or higher.")
 
 
+# get the version
+version = {}
+with open('numproto/__version__.py') as fp:
+    exec(fp.read(), version)
+
 # Handle protobuf
 class CustomDevelopCommand(develop):
     def run(self):
@@ -45,7 +50,7 @@ tests_require = [
 
 setup(
     name="numproto",
-    version="0.1.0",
+    version=version["__version__"],
     description="numproto provides numpy to arrays to protobuf conversion",
     url="https://github.com/xainag/numproto",
     author="numproto Contributors",
