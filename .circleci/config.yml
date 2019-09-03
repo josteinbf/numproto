@@ -30,7 +30,7 @@ jobs:
           name: run linters
           command: |
             . venv/bin/activate
-            black numproto tests
+            black --diff numproto tests
 
       - run:
           name: run tests
