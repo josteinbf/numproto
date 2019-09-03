@@ -2,7 +2,7 @@ from io import BytesIO
 
 import numpy as np
 
-from ndarray_pb2 import NdArray
+from numproto.ndarray_pb2 import NdArray
 
 
 def ndarray_to_proto(nda: np.ndarray) -> NdArray:
