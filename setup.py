@@ -60,8 +60,9 @@ setup(
     python_requires=">=3.6",
     classifiers=[
         "Development Status :: 3 - Alpha",
-        "Intended Audience :: Any Industry",
-        "Topic :: ML :: Machine Learning :: AI",
+        "Intended Audience :: Developers",
+        "Topic :: Software Development",
+        "Topic :: Scientific/Engineering",
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python :: 3 :: Only",
         "Programming Language :: Python :: 3.6",
