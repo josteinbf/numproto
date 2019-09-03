@@ -36,6 +36,7 @@ install_requires = [
 
 dev_require = [
     "grpcio-tools==1.23.0",  # Apache License 2.0
+    "black==19.3b0",  # MIT
 ]
 
 tests_require = [

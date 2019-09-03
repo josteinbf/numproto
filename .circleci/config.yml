@@ -27,6 +27,12 @@ jobs:
           key: v1-dependencies-{{ checksum "setup.py" }}
 
       - run:
+          name: run linters
+          command: |
+            . venv/bin/activate
+            black numproto tests
+
+      - run:
           name: run tests
           command: |
             . venv/bin/activate
