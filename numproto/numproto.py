@@ -28,7 +28,7 @@ def proto_to_ndarray(nda_proto: NDArray) -> np.ndarray:
         nda_proto (NDArray): NDArray protobuf message to deserialize.
 
     Returns:
-        Returns a numpy.ndarry.
+        Returns a numpy.ndarray.
     """
     nda_bytes = BytesIO(nda_proto.ndarray)
 
