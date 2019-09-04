@@ -5,7 +5,7 @@ arrays into and from protobuf messages.
 
 ## Installation
 
-You can install numproto from the pypi package:
+You can install NumProto from the PyPI package:
 ```bash
 $ pip install numproto
 ```
