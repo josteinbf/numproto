@@ -42,6 +42,7 @@ class CustomDevelopCommand(develop):
 install_requires = [
     "numpy==1.15.4",  # BSD
     "grpcio==1.23.0",  # Apache License 2.0
+    "protobuf==3.9.1",
 ]
 
 dev_require = [
