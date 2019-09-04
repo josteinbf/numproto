@@ -5,12 +5,9 @@ arrays into and from protobuf messages.
 
 ## Installation
 
-You can install numproto from the source by using the following commands (this
-will change once we publish the package to pypi):
+You can install numproto from the pypi package:
 ```bash
-$ git clone https://github.com/xainag/numproto.git
-$ cd numproto
-$ pip install .
+$ pip install numproto
 ```
 
 ## Usage
