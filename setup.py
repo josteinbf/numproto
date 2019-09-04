@@ -12,6 +12,11 @@ version = {}
 with open('numproto/__version__.py') as fp:
     exec(fp.read(), version)
 
+# get readme
+with open("README.md", "r") as fh:
+    readme = fh.read()
+
+
 # Handle protobuf
 class CustomDevelopCommand(develop):
     def run(self):
@@ -51,7 +56,9 @@ tests_require = [
 setup(
     name="numproto",
     version=version["__version__"],
-    description="numproto provides numpy to arrays to protobuf conversion",
+    description="numproto provides numpy arrays to protobuf conversion",
+    long_description=readme,
+    long_description_content_type="text/markdown",
     url="https://github.com/xainag/numproto",
     author="numproto Contributors",
     author_email="services@xain.io",
