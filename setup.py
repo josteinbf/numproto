@@ -26,10 +26,10 @@ class CustomDevelopCommand(develop):
 
         develop.run(self)
 
-        proto_files = glob.glob('./xain/protobuf/*.proto')
+        proto_files = glob.glob('./numproto/protobuf/*.proto')
         command = [
             'grpc_tools.protoc',
-            '--proto_path=./xain/protobuf/',
+            '--proto_path=./numproto/protobuf/',
             '--python_out=./numproto',
             '--grpc_python_out=./numproto',
         ] + proto_files
@@ -86,4 +86,9 @@ setup(
         "dev": dev_require + tests_require,
     },
     cmdclass={"develop": CustomDevelopCommand},
+    package_data={
+        "numproto": [
+            "protobuf/*",
+        ],
+    },
 )

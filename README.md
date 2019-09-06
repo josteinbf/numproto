@@ -14,10 +14,12 @@ $ pip install numproto
 ## Usage
 
 NumProto serializes a numpy array into an `NDArray` message as specified in
-[ndarray.proto](https://github.com/xainag/numproto/blob/master/xain/protobuf/ndarray.proto):
+[ndarray.proto](https://github.com/xainag/numproto/blob/master/numproto/protobuf/ndarray.proto):
 
 ```proto
 syntax = "proto3";
+
+package numproto;
 
 message NDArray {
     bytes ndarray = 1;
@@ -39,6 +41,38 @@ deserialized_nda = proto_to_ndarray(serialized_nda)
 
 assert np.array_equal(nda, deserialized_nda)
 ```
+
+### Re-using the proto files in another project
+
+Re-distributing `*.proto` files is notoriously difficult. In order to make this
+easier the
+[ndarray.proto](https://github.com/xainag/numproto/blob/master/numproto/protobuf/ndarray.proto)
+file is installed together with the python package.
+
+This allows us to simply pass the `site-packages` path as an import path to
+`protoc`.
+
+> To get the correct path of `site-packages` check the _Location_ key when
+> running `pip show numproto`.
+
+For example let's say we want to create a new `proto` file and import `NDArray`
+to use within one of our defined messages:
+
+```proto
+syntax = "proto3";
+
+import "numproto/protobuf/ndarray.proto";
+
+message MyMessage {
+    numproto.NDArray my_array = 1;
+}
+```
+
+And to compile using `grpcio-tools` simply do:
+```bash
+$ python -m grpc_tools.protoc -I/usr/lib/python3.6/site-packages/ -I./ --python_out=. --grpc_python_out=. my_proto.proto
+```
+(you may need to adjust the location of `site-packages`)
 
 ## Tests
 
