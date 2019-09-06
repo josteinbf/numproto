@@ -19,7 +19,7 @@ NumProto serializes a numpy array into an `NDArray` message as specified in
 ```proto
 syntax = "proto3";
 
-package numproto.ndarray;
+package numproto;
 
 message NDArray {
     bytes ndarray = 1;
@@ -56,7 +56,7 @@ This allows us to simply pass the `site-packages` path as an import path to
 > running `pip show numproto`.
 
 For example let's say we want to create a new `proto` file and import `NDArray`
-to use withing one of our defined messages:
+to use within one of our defined messages:
 
 ```proto
 syntax = "proto3";
@@ -64,7 +64,7 @@ syntax = "proto3";
 import "numproto/protobuf/ndarray.proto";
 
 message MyMessage {
-    numproto.ndarray.NDArray my_array = 1;
+    numproto.NDArray my_array = 1;
 }
 ```
 

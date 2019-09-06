@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package numproto.ndarray;
+package numproto;
 
 message NDArray {
     bytes ndarray = 1;
