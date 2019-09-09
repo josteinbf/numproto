@@ -19,7 +19,7 @@ NumProto serializes a numpy array into an `NDArray` message as specified in
 ```proto
 syntax = "proto3";
 
-package numproto;
+package xain.numproto;
 
 message NDArray {
     bytes ndarray = 1;
@@ -64,7 +64,7 @@ syntax = "proto3";
 import "numproto/protobuf/ndarray.proto";
 
 message MyMessage {
-    numproto.NDArray my_array = 1;
+    xain.numproto.NDArray my_array = 1;
 }
 ```
 
