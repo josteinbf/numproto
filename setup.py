@@ -30,8 +30,8 @@ class CustomDevelopCommand(develop):
         command = [
             'grpc_tools.protoc',
             '--proto_path=./numproto/protobuf/',
-            '--python_out=./numproto',
-            '--grpc_python_out=./numproto',
+            '--python_out=./numproto/protobuf/',
+            '--grpc_python_out=./numproto/protobuf/',
         ] + proto_files
 
         print('Building proto_files {}'.format(proto_files))

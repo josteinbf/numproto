@@ -30,7 +30,7 @@ jobs:
           name: run linters
           command: |
             . venv/bin/activate
-            black --exclude="numproto/ndarray_pb2*" --check numproto tests
+            black --exclude="numproto/protobuf/ndarray_pb2*" --check numproto tests
 
       - run:
           name: run tests
