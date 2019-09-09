@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package xain.numproto;
+package numproto.protobuf;
 
 message NDArray {
     bytes ndarray = 1;
