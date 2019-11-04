@@ -1,5 +1,6 @@
-import sys
 import glob
+import sys
+
 from setuptools import find_packages, setup
 from setuptools.command.develop import develop
 
@@ -9,7 +10,7 @@ if sys.version_info < (3, 6):
 
 # get the version
 version = {}
-with open('numproto/__version__.py') as fp:
+with open("numproto/__version__.py") as fp:
     exec(fp.read(), version)
 
 # get readme
@@ -26,17 +27,17 @@ class CustomDevelopCommand(develop):
 
         develop.run(self)
 
-        proto_files = glob.glob('./numproto/protobuf/*.proto')
+        proto_files = glob.glob("./numproto/protobuf/*.proto")
         command = [
-            'grpc_tools.protoc',
-            '--proto_path=./numproto/protobuf/',
-            '--python_out=./numproto/protobuf/',
-            '--grpc_python_out=./numproto/protobuf/',
+            "grpc_tools.protoc",
+            "--proto_path=./numproto/protobuf/",
+            "--python_out=./numproto/protobuf/",
+            "--grpc_python_out=./numproto/protobuf/",
         ] + proto_files
 
-        print('Building proto_files {}'.format(proto_files))
+        print("Building proto_files {}".format(proto_files))
         if protoc.main(command) != 0:
-            raise Exception('error: {} failed'.format(command))
+            raise Exception("error: {} failed".format(command))
 
 
 install_requires = [
@@ -47,12 +48,12 @@ install_requires = [
 
 dev_require = [
     "grpcio-tools~=1.23",  # Apache License 2.0
+    "isort==4.3.20",  # MIT
     "black==19.3b0",  # MIT
 ]
 
-tests_require = [
-    "pytest==5.1.2",  # MIT
-]
+tests_require = ["pytest==5.1.2"]  # MIT
+
 
 setup(
     name="numproto",
@@ -81,14 +82,7 @@ setup(
     packages=find_packages(exclude=["tests"]),
     install_requires=install_requires,
     tests_require=tests_require,
-    extras_require={
-        "test": tests_require,
-        "dev": dev_require + tests_require,
-    },
+    extras_require={"test": tests_require, "dev": dev_require + tests_require},
     cmdclass={"develop": CustomDevelopCommand},
-    package_data={
-        "numproto": [
-            "protobuf/*",
-        ],
-    },
+    package_data={"numproto": ["protobuf/*"]},
 )
