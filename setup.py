@@ -40,28 +40,28 @@ class CustomDevelopCommand(develop):
 
 
 install_requires = [
-    "numpy==1.15.4",  # BSD
-    "grpcio==1.23.0",  # Apache License 2.0
-    "protobuf==3.9.1",
+    "numpy~=1.15",  # BSD
+    "protobuf~=3.9",  # BSD
+    "grpcio~=1.23",  # Apache License 2.0
 ]
 
 dev_require = [
-    "grpcio-tools==1.23.0",  # Apache License 2.0
+    "grpcio-tools~=1.23",  # Apache License 2.0
     "black==19.3b0",  # MIT
 ]
 
 tests_require = [
-    "pytest==5.1.2",  # MIT license
+    "pytest==5.1.2",  # MIT
 ]
 
 setup(
     name="numproto",
     version=version["__version__"],
-    description="numproto provides numpy arrays to protobuf conversion",
+    description="NumProto provides NumPy ndarray to protobuf conversion.",
     long_description=readme,
     long_description_content_type="text/markdown",
     url="https://github.com/xainag/numproto",
-    author="numproto Contributors",
+    author="NumProto Contributors",
     author_email="services@xain.io",
     license="Apache License Version 2.0",
     zip_safe=False,
