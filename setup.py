@@ -53,6 +53,7 @@ dev_require = [
     "black==19.3b0",  # MIT
     "mypy==0.720",  # MIT License
     "mypy-protobuf==1.15",  # Apache License 2.0
+    "pylint==2.3.1",  # GPL
 ]
 
 tests_require = ["pytest==5.1.2"]  # MIT

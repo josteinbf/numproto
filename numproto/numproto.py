@@ -1,4 +1,4 @@
-"""numpy array to protobuf serialization and deserialization"""
+"""NumPy ndarray to protobuf serialization and deserialization"""
 from io import BytesIO
 
 import numpy as np
