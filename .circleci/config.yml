@@ -1,9 +1,10 @@
 version: 2.1
 jobs:
+  # this job uses the ubuntu 18.04 docker image so that we have both
+  # clang-format-8+ and python3.7
   tests:
     docker:
       - image: ubuntu:18.04
-
     steps:
       - checkout
 
@@ -31,3 +32,9 @@ jobs:
           command: |
             . venv/bin/activate
             ./scripts/test.sh
+
+workflows:
+  version: 2.1
+  qa:
+    jobs:
+      - tests
