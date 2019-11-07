@@ -1,5 +1,6 @@
-import pytest
+"""NumProto tests"""
 import numpy as np
+import pytest
 
 from numproto import ndarray_to_proto, proto_to_ndarray
 
