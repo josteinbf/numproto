@@ -11,15 +11,13 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "setup.py" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
 
       - run:
           name: install dependencies
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pip install -e .[dev]
+            ./scripts/setup.sh
 
       - save_cache:
           paths:
@@ -27,13 +25,7 @@ jobs:
           key: v1-dependencies-{{ checksum "setup.py" }}
 
       - run:
-          name: run linters
-          command: |
-            . venv/bin/activate
-            black --exclude="numproto/protobuf/ndarray_pb2*" --check numproto tests
-
-      - run:
           name: run tests
           command: |
             . venv/bin/activate
-            pytest
+            ./scripts/test.sh
