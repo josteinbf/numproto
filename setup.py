@@ -33,6 +33,7 @@ class CustomDevelopCommand(develop):
             "--proto_path=./numproto/protobuf/",
             "--python_out=./numproto/protobuf/",
             "--grpc_python_out=./numproto/protobuf/",
+            "--mypy_out=./numproto/protobuf",
         ] + proto_files
 
         print("Building proto_files {}".format(proto_files))
@@ -50,6 +51,9 @@ dev_require = [
     "grpcio-tools~=1.23",  # Apache License 2.0
     "isort==4.3.20",  # MIT
     "black==19.3b0",  # MIT
+    "mypy==0.720",  # MIT License
+    "mypy-protobuf==1.15",  # Apache License 2.0
+    "pylint==2.3.1",  # GPL
 ]
 
 tests_require = ["pytest==5.1.2"]  # MIT

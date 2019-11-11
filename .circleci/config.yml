@@ -1,9 +1,10 @@
 version: 2.1
 jobs:
-  build:
+  # this job uses the ubuntu 18.04 docker image so that we have both
+  # clang-format-8+ and python3.7
+  tests:
     docker:
-      - image: circleci/python:3.7
-
+      - image: ubuntu:18.04
     steps:
       - checkout
 
@@ -11,15 +12,15 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "setup.py" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
 
       - run:
           name: install dependencies
           command: |
-            python3 -m venv venv
+            apt-get update && apt-get install -y clang-format-8 python3.7 python3-venv python3.7-venv make
+            ln -s /usr/bin/clang-format-8 /usr/bin/clang-format
+            python3.7 -m venv venv
             . venv/bin/activate
-            pip install -e .[dev]
+            ./scripts/setup.sh
 
       - save_cache:
           paths:
@@ -27,13 +28,13 @@ jobs:
           key: v1-dependencies-{{ checksum "setup.py" }}
 
       - run:
-          name: run linters
-          command: |
-            . venv/bin/activate
-            black --exclude="numproto/protobuf/ndarray_pb2*" --check numproto tests
-
-      - run:
           name: run tests
           command: |
             . venv/bin/activate
-            pytest
+            ./scripts/test.sh
+
+workflows:
+  version: 2.1
+  qa:
+    jobs:
+      - tests
