@@ -54,6 +54,8 @@ dev_require = [
     "mypy==0.720",  # MIT License
     "mypy-protobuf==1.15",  # Apache License 2.0
     "pylint==2.3.1",  # GPL
+    "twine==2.0.0",  # Apache License 2.0
+    "wheel==0.33.6",  # MIT
 ]
 
 tests_require = ["pytest==5.1.2"]  # MIT
